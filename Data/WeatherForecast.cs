@@ -1,4 +1,4 @@
-namespace GettingStarted.Data
+namespace TurboKanban.Data
 {
     public class WeatherForecast
     {
