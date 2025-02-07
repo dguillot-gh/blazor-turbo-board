@@ -6,7 +6,7 @@
 
 <h1>Parts Manager</h1>
 
-<p>Manage Available Parts</p>
+<h5>Parts Status (@parts.Count(parts => !parts.IsAccquired)</h5>
 
 @code {
     private List<Parts> parts = new();
@@ -15,7 +15,9 @@
 <ul>
     @foreach (var part in parts)
     {
-        <li>@part.Title</li>
+        <input type="checkbox" @bind="part.IsAccquired" />
+        <input @bind="part.Title"  />
+
     }
 </ul>
 
