@@ -1,0 +1,20 @@
+﻿@page "/partsmanager"
+@using TurboKanban
+
+<PageTitle>Parts Management</PageTitle>
+
+<h1>Parts Manager</h1>
+
+<p>Manage Available Parts</p>
+
+@code {
+    private List<Parts> parts = new();
+}
+
+<ul>
+    @foreach (var part in parts)
+    {
+            <li>@part.Title</li>
+    })
+</ul>
+

@@ -1,8 +1,8 @@
-namespace TurboKanban.Data
+﻿namespace TurboKanban
 {
-    public class Part
+    public class Parts
     {
-        public int Id { get; set; }
+        public string? Title { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
