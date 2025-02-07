@@ -28,7 +28,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        parts = await PartsSvc.GetPartsAsync(); // Load parts from service
+        parts = await PartsSvc.GetPartsAsync();
     }
 
     void AddPart()
@@ -37,7 +37,7 @@
         {
             parts.Add(new Parts { Title = newPart, IsAccquired = false });
             newPart = string.Empty;
-            StateHasChanged(); // Force UI refresh
+            StateHasChanged(); 
         }
     }
 }
