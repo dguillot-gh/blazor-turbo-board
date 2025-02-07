@@ -1,0 +1,39 @@
+﻿@page "/partsmanager"
+@using TurboKanban;
+@using TurboKanban.Data;
+
+<PageTitle>Parts Management</PageTitle>
+
+<h1>Parts Manager</h1>
+
+<h5>Parts Status (@parts.Count(parts => !parts.IsAccquired)</h5>
+
+@code {
+    private List<Parts> parts = new();
+}
+
+<ul>
+    @foreach (var part in parts)
+    {
+        <input type="checkbox" @bind="part.IsAccquired" />
+        <input @bind="part.Title"  />
+
+    }
+</ul>
+
+<input @bind="newPart" />
+<button @onclick="AddPart">Add Part</button>
+
+@code {
+    private List<Parts> Items = new();
+    string newPart = "";
+
+    void AddPart()
+    {
+        if(!string.IsNullOrWhiteSpace(newPart))
+        {
+            parts.Add(new Parts { Title = newPart});
+            newPart = string.Empty;
+        }
+    }
+}
