@@ -2,6 +2,7 @@ using TurboKanban;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Syncfusion.Blazor;
+using TurboKanban.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,7 @@ Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQx
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSyncfusionBlazor();
+builder.Services.AddSingleton<PartsService>();
 
 var app = builder.Build();
 
