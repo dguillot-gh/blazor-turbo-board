@@ -15,7 +15,23 @@
 <ul>
     @foreach (var part in parts)
     {
-            <li>@part.Title</li>
-    })
+        <li>@part.Title</li>
+    }
 </ul>
 
+<input @bind="newPart" />
+<button @onclick="AddPart">Add Part</button>
+
+@code {
+    private List<Parts> Items = new();
+    string newPart = "";
+
+    void AddPart()
+    {
+        if(!string.IsNullOrWhiteSpace(newPart))
+        {
+            parts.Add(new Parts { Title = newPart});
+            newPart = string.Empty;
+        }
+    }
+}
