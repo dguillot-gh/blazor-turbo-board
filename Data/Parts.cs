@@ -1,4 +1,4 @@
-﻿namespace TurboKanban
+﻿namespace TurboKanban.Data
 {
     public class Parts
     {
