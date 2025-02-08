@@ -40,6 +40,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAntiforgery();   
+
 app.MapRazorPages();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");

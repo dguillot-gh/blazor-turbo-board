@@ -1,4 +1,4 @@
-﻿@page "/partsmanager/create"
+﻿@page "/parts/create"
 @using Microsoft.EntityFrameworkCore
 @using TurboKanban.Models
 @inject IDbContextFactory<TurboKanban.Data.TurboKanbanContext> DbFactory
@@ -59,6 +59,6 @@
         using var context = DbFactory.CreateDbContext();
         context.Parts.Add(Parts);
         await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/partsmanager");
+        NavigationManager.NavigateTo("/parts");
     }
 }
