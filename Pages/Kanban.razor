@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<SfKanban TValue="Task" DataSource="@TaskDetails" KeyField="Status">
+    <KanbanColumns>
+        <KanbanColumn HeaderText="To Do" KeyField="@(new List<string>() {"Open" })"></KanbanColumn>
+        <KanbanColumn HeaderText="In Progress" KeyField="@(new List<string>() {"InProgress" })"></KanbanColumn>
+        <KanbanColumn HeaderText="Testing" KeyField="@(new List<string>() {"Testing" })"></KanbanColumn>
+        <KanbanColumn HeaderText="Done" KeyField="@(new List<string>() {"Close" })"></KanbanColumn>
+    </KanbanColumns>
+    <KanbanCardSettings HeaderField="Title" ContentField="Summary"></KanbanCardSettings>
+</SfKanban>
+
+@code {
+    public class Task
+    {
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string Status { get; set; }
+        public string Summary { get; set; }
+    }
+
+    public List<Task> TaskDetails = new List<Task>()
+    {
+        new Task { Id = "Task 1", Title = "MIAT-0001", Status = "Open", Summary = "Finish Turbo Build"},
+
+    };
+}
