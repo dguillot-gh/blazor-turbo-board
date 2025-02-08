@@ -1,0 +1,48 @@
+﻿@page "/parts"
+@inject IHttpClientFactory HttpClientFactory
+@using TurboKanban.Data
+
+<h3>Parts Collection</h3>
+
+@if (PartsList == null)
+{
+        <p>Loading...</p>
+}
+else if (PartsList.Count == 0)
+{
+        <p>No parts found.</p>
+}
+else
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Acquired</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var part in PartsList)
+            {
+                    <tr>
+                        <td>@part.Name</td>
+                        <td>@part.Quantity</td>
+                        <td>@part.Price.ToString("C")</td>
+                        <td>@(part.IsAccquired ? "✔" : "❌")</td>
+                    </tr>
+            }
+            </tbody>
+        </table>
+}
+
+@code {
+    private List<Parts>? PartsList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = HttpClientFactory.CreateClient("API"); // Use named HttpClient
+        PartsList = await client.GetFromJsonAsync<List<Parts>>("parts"); // No need for "/"
+    }
+}
