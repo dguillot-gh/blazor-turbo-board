@@ -1,0 +1,40 @@
+﻿@page "/parts"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using TurboKanban.Models
+@using TurboKanban.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<TurboKanban.Data.TurboKanbanContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="parts/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Parts">
+    <PropertyColumn Property="parts => parts.PartName" />
+    <PropertyColumn Property="parts => parts.PartNumber" />
+    <PropertyColumn Property="parts => parts.Description" />
+    <PropertyColumn Property="parts => parts.Status" />
+    <PropertyColumn Property="parts => parts.Price" />
+
+    <TemplateColumn Context="parts">
+        <a href="@($"parts/edit?id={parts.Id}")">Edit</a> |
+        <a href="@($"parts/details?id={parts.Id}")">Details</a> |
+        <a href="@($"parts/delete?id={parts.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private TurboKanbanContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}
