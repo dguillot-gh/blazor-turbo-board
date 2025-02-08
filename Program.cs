@@ -2,7 +2,6 @@ using TurboKanban;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Syncfusion.Blazor;
-using TurboKanban.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -5,7 +5,6 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <ApplicationIcon>turbo_icon_transparent.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,8 +24,5 @@
     <Folder Include="Data\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\css\turbo_icon_transparent.ico" />
-  </ItemGroup>
 
 </Project>
